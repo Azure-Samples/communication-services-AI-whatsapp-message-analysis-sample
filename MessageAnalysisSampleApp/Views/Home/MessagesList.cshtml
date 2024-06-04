@@ -1,0 +1,113 @@
+﻿@{
+    ViewData["Title"] = "Messages List";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flower Shop - Inquiry with Insights</title>
+    <style>
+        .messagecontainer {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 600px;
+            color: #000;
+        }
+
+        .messageinfo {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .messagecontent {
+            margin-top: 10px;
+        }
+
+        .insightscontainer {
+            background-color: #e0e0e0;
+            color: #000;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        .insightstitle {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .insightitem {
+            margin-bottom: 10px;
+        }
+
+        .emptylist {
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 70vh;
+            text-align: center;
+        }
+
+        .emptylist h2 {
+            margin: 0; /* Removes default margin from h2 to help with centering */
+        }
+
+        .button {
+            margin-left: 10%;
+            position: absolute;
+            bottom: 10px;
+        }
+    </style>
+</head>
+
+@if (EventsReceived.EventReceivedListStatic != null && EventsReceived.EventReceivedListStatic.Count != 0)
+{
+    @foreach (var eventReceived in EventsReceived.EventReceivedListStatic)
+    {
+        @if (eventReceived.Analysis != null)
+        {
+            <div class="insightscontainer">
+                <div class="insightstitle">Insights:</div>
+                <div class="insightitem"><strong>Language Detected:</strong> @eventReceived.Analysis.LanguageDetection.Language</div>
+                @if (eventReceived.Analysis.LanguageDetection.Language.ToLower() != "english")
+                {
+                    <div class="insightitem"><strong>Translation:</strong> @eventReceived.Analysis.LanguageDetection.Translation</div>
+                }
+                <div class="insightitem"><strong>Intent:</strong> @eventReceived.Analysis.IntentAnalysis</div>
+                <div class="insightitem">
+                    <strong>Keywords:</strong> @(string.Join(", ", @eventReceived.Analysis.KeyphraseExtraction.Select(keyword => keyword)))
+                </div>
+            </div>
+        }
+        @if (eventReceived.Text != null)
+        {
+            <div class="messagecontainer">
+                <div class="messageinfo">
+                    <p>From: @eventReceived.Text.From</p>
+                    <p>Received Time: @eventReceived.Text.ReceivedTimeStamp</p>
+                </div>
+                <div class="messagecontent">
+                    @eventReceived.Text.Content
+                </div>
+            </div>
+        }
+    }
+
+    <div class="button">
+        @using (Html.BeginForm("ClearHistory", "Home", FormMethod.Post))
+        {
+            <input type="submit" value="Clear History" class="btn-secondary" />
+        }
+    </div>
+}
+else
+{
+    <div class="emptylist">
+        <h2>There is no customer insight yet.</h2>
+    </div>
+}

@@ -1,0 +1,59 @@
+﻿@{  
+    ViewBag.Title = "Home Page";  
+}  
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flower Shop - Inquiry with Insights</title>
+    <style>
+        body, html {
+            height: 100%; /* Make sure html and body are full height */
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .info{
+            padding-left: 10%; /* Aligns text to the left with padding */
+        }
+        
+        .info h1 {
+            font-family: Bell MT;
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        .info p {
+            color: #F2F6F2;
+            font-family: Sans serif;
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            font-family: Arial;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            border: 2px solid white;
+            width: 140px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<div class="info">
+    <h1> Discover Unique <br> Floral Magic </h1>
+    <p> Elevate any moment with our expertly designed flower arrangements, <br> crafted with love in Seattle. </p>
+    <a href="#" class="button">Shop Now</a>
+</div>
+
+
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>

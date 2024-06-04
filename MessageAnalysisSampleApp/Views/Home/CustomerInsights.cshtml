@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "CustomerInsights";
+}
+<script>
+    function loadPartialView() {
+        $.ajax({
+            url: "@Url.Action("MessagesList", "Home")",
+            type: 'POST',
+            dataType: 'html',
+            cache: false,
+            success: function (html) {
+                $("#partialContainer").html(html);
+            }
+        });
+    }
+    function RefreshPartial() {
+        //this will wait 1 seconds and then fire the load partial function
+        setTimeout(function () {
+            loadPartialView();
+            //recall this function so that it will continue to loop
+            RefreshPartial();
+        }, 1000);
+    }
+    //initialize the loop
+    RefreshPartial();
+</script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body, html {
+            height: 100%; /* Make sure html and body are full height */
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .contentcontainer {
+            height: 90%;
+            overflow: auto;
+        }
+
+        #partialContainer {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contentcontainer">
+        <div id="partialContainer">
+            @Html.Partial("MessagesList")
+        </div>
+    </div>
+</body>
