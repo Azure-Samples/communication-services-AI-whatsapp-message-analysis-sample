@@ -14,7 +14,7 @@ This project provides the following features:
 - An Azure account with an active subscription. For details, see [Create an account for free](https://aka.ms/Mech-Azureaccount).
 - [.NET SDK 7.0 or later](https://dotnet.microsoft.com/download).
 - Azure Communication Services resource. For details, see [Create and manage Communication Services resources](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource).
-- WhatsApp Channel under ACS resource. For details, see [Register WhatsApp business account](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/advanced-messaging/whatsapp/connect-whatsapp-business-account).
+- WhatsApp Channel under Azure Communication Services resource. For details, see [Register WhatsApp business account](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/advanced-messaging/whatsapp/connect-whatsapp-business-account).
 - Azure OpenAI resource. For details, see [Create and deploy an Azure OpenAI Service resource](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/create-resource).
 
 ## Setup
@@ -62,6 +62,9 @@ To get up and running quickly, follow these steps:
 ## Deployment to Azure Cloud
 
 To deploy the web app, follow the quickstart guide: [Quickstart: Publish an ASP.NET web app](https://learn.microsoft.com/en-us/visualstudio/deployment/quickstart-deploy-aspnet-web-app?view=vs-2022&tabs=azure).
+
+## Sign Up
+To enroll in the limited preview of the WhatsApp Message Analysis feature, please complete the [sign up form](https://aka.ms/MessageAnalysisPreview). Access to this feature will be granted approximately one to two weeks after your application is submitted and reviewed.
 
 ## Resources
 
