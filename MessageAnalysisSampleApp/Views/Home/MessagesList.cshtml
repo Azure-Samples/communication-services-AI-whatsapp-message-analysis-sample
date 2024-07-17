@@ -80,7 +80,7 @@
                 }
                 <div class="insightitem"><strong>Intent:</strong> @eventReceived.Analysis.IntentAnalysis</div>
                 <div class="insightitem">
-                    <strong>Keywords:</strong> @(string.Join(", ", @eventReceived.Analysis.KeyphraseExtraction.Select(keyword => keyword)))
+                    <strong>Keywords:</strong> @(string.Join(", ", @eventReceived.Analysis.ExtractedKeyPhrases.Select(keyword => keyword)))
                 </div>
             </div>
         }

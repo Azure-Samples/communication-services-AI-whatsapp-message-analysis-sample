@@ -4,7 +4,7 @@
     {
         public string Language { get; set; }
 
-        public string ConfidenceScore { get; set; }
+        public double ConfidenceScore { get; set; }
 
         public string Translation { get; set; }
     }
